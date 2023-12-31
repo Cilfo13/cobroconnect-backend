@@ -11,9 +11,7 @@ use App\Models\Nota;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
-use App\Models\Carga;
 use App\Models\Reporte;
-use Illuminate\Support\Collection;
 use Carbon\Carbon;
 
 class CobroController extends Controller

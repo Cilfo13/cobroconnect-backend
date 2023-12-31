@@ -3,9 +3,8 @@
 @section('content')
     <div class="bg-light p-5 rounded">
         @auth
-        <h1>Bienvenido</h1>
-        <p class="lead">Solo podes ver esto si estas logueado</p>
-        <a class="btn btn-lg btn-primary" href="#" role="button">Iniciá por acá &raquo;</a>
+        <h1>Bienvenido {{auth()->user()->name}}</h1>
+        <a class="btn btn-lg btn-primary" href="{{route('cobros.index')}}" role="button">Ir a cobros &raquo;</a>
         @endauth
     </div>
 @endsection

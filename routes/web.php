@@ -29,6 +29,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
             //Zonas
             Route::get('/zonas', 'ZonaController@index')->name('zona.index');
             Route::post('/zonas', 'ZonaController@store')->name('zona.store');
+            Route::post('/informeGlobal', 'ZonaController@informeGlobal')->name('zona.generarInforme');
             //Clientes
             Route::get('/clientes', 'ClienteController@index')->name('clientes.index');
             Route::post('/clientes', 'ClienteController@store')->name('clientes.store');

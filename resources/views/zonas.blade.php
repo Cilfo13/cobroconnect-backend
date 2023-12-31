@@ -13,6 +13,9 @@
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="bi bi-database-add"></i> CREAR ZONAS 
         </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#informeModal">
+          <i class="bi bi-file-earmark-pdf"></i> GENERAR INFORME DE COBROS DE TODAS LAS ZONAS 
+      </button>
       </div>
         <table id="tabla" class="table table-striped table-hover">
             <thead>
@@ -84,6 +87,7 @@
 
           <h1>Total de todas las zonas: {{number_format($saldoTotal, 2, ',', '.')}}</h1>
 
+          {{-- Crear Zona modal --}}
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -109,7 +113,36 @@
               </div>
             </div>
           </div>
+          {{-- /Crear Zona modal --}}
 
+          {{-- Crear Infome modal --}}
+          <div class="modal fade" id="informeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Generar informe de cobro global</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{{ route('zona.generarInforme') }}">
+                        @csrf
+                        <div class="input-group mb-4 mt-2">
+                            <b><span>Elegir fecha</span></b>
+                        </div>
+                        <div class="input-group mb-4 mt-2">
+                          <span class="input-group-text">FECHA</span>
+                          <input type="date" name="fecha" class="form-control" required>
+                        </div>
+                        <div class="mb-3 modal-footer">
+                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-success">Generar</button>
+                        </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{-- /Crear Infome modal --}}
     </main>
 
     <script>
